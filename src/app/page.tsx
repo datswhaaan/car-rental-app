@@ -9,10 +9,10 @@ export default function Home() {
         <Banner/>
         <div style={{margin:"20px", display:"flex", flexDirection:"row",
       flexWrap:"wrap", justifyContent:"space-around", alignContent:"space-around"}}>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
+          <ProductCard carname='Honda Civic' imgSrc='/img/civic.jpg'/>
+          <ProductCard carname='Honda Accord' imgSrc='/img/accord.jpg'/>
+          <ProductCard carname='Toyota Fortuner' imgSrc='/img/fortuner.jpg'/>
+          <ProductCard carname='Tesla Model 3' imgSrc='/img/tesla.jpg'/>
         </div>
     </main>
   );
