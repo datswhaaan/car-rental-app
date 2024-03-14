@@ -1,9 +1,9 @@
-import styles from './productcard.module.css'
 import Image from 'next/image'
+import InteractiveCard from './InteractiveCard'
 
 export default function ProductCard({ carname, imgSrc} : { carname:string, imgSrc:string }) {
     return (
-        <div className='w-1/5 h-[300px] rounded-lg shadow-lg'>
+        <InteractiveCard contentName={ carname }>
             <div className='w-full h-[70%] relative rounded-t-lg'>
                 <Image src={imgSrc}
                 alt='Product Picture'
@@ -11,6 +11,6 @@ export default function ProductCard({ carname, imgSrc} : { carname:string, imgSr
                 className='object-cover rounded-t-lg'/>
             </div>
             <div className='w-full h-[30%] p-[10px]'>{carname}</div>
-        </div>
+        </InteractiveCard>
     )
 }
