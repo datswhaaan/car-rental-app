@@ -3,7 +3,7 @@ import Image from 'next/image'
 import TopMenuItem from './TopMenuItem'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { Link } from '@mui/material'
+import Link from 'next/link'
 
 export default async function TopMenu() {
 
@@ -13,21 +13,26 @@ export default async function TopMenu() {
         <div className={styles.menucontainer}>
             <Image src={'/img/logo.png'} className={styles.logoimg}
             alt='logo' width={0} height={0} sizes='100vh'></Image>
+            <TopMenuItem title='Select Car' pageRef='/car'/>
             <TopMenuItem title='Reservations' pageRef='/reservations'/>
             <TopMenuItem title='About' pageRef='/about'/>
 
-            {
-                session? <Link href="/api/auth/signout">
-                    <div className='flex items-center absolute right-0 h-full px-2 
-                    absolute right-0 text-cyan-600 text-sm'>
-                        Sign-Out of {session.user?.name}
-                    </div></Link>
-                : <Link href="/api/auth/signin">
-                    <div className='flex items-center absolute right-0 h-full px-2
-                    absolute right-0 text-cyan-600 text-sm'>
-                        Sign-In    
-                    </div></Link>
-            }
+            <div className='flex flex-row absolute right-0 h-full'>
+                
+            <TopMenuItem title='Cart' pageRef='/cart'/>
+                {
+                    session? <Link href="/api/auth/signout">
+                        <div className='flex items-center h-full px-2 
+                         text-cyan-600 text-sm'>
+                            Sign-Out of {session.user?.name}
+                        </div></Link>
+                    : <Link href="/api/auth/signin">
+                        <div className='flex items-center h-full px-2
+                        text-cyan-600 text-sm'>
+                            Sign-In    
+                        </div></Link>
+                }
+            </div>
         </div>
     )
 }
